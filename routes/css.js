@@ -3,7 +3,7 @@
 var express = require('express');
 var router  = express.Router();
 var sleep   = require('sleep');
-var css     = '#foo .bar .baz { color: #F00; }';
+var css     = 'body { background-color: #e6ffe6; }';
 
 
 router.get('/:delay?/:size?/:name.css', function(req, res) {
