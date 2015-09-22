@@ -18,7 +18,7 @@ router.get('/:delay?/:size?', function(req, res) {
   size = Math.max(parseInt(req.params.size || 0) * 1000, size);
   res.set('X-Content-Size', size);
   var body = new Buffer(size);
-  body.fill('_', body.write(css));
+  body.fill(' ', body.write(css));
 
   // response
   res.set('Content-Type', 'text/css');
