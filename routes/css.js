@@ -6,7 +6,10 @@ var sleep   = require('sleep');
 var css     = '#foo .bar .baz { color: #F00; }';
 
 
-router.get('/:delay?/:size?', function(req, res) {
+router.get('/:delay?/:size?/:name.css', function(req, res) {
+
+  // name: a name for the resource to identify easily in the developer-tools network waterfall
+  res.set('X-Content-Name', req.params.name);
 
   // delay: response time in seconds
   var delay = parseInt(req.params.delay || 0);

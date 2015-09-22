@@ -3,21 +3,27 @@ extends layout
 block content
   h1= title
   h3 Stylesheet
-  a(href="/css/0/1") /css/&lt;delay&gt;?/&lt;size&gt;?
+  a(href="/css/0/0/style.css") /css/&lt;delay&gt;?/&lt;size&gt;?/&lt;name&gt;.css
   p
     code &lt;delay&gt;
-    span : response time in seconds
+    span : response time in seconds [default: 0 sec]
   p
     code &lt;size&gt;
-    span : size of document in kilo-bytes
+    span : size of document in kilo-bytes [default: minimal script]
+  p
+    code &lt;name&gt;
+    span : name for the resource to identify easily in the developer-tools network waterfall
   h3 Javascript
-  a(href="/javascript/0/1/0") /javascript/&lt;delay&gt;?/&lt;size&gt;?/&lt;time&gt;?
+  a(href="/javascript/0/0/0/script.js") /javascript/&lt;delay&gt;?/&lt;size&gt;?/&lt;time&gt;?/&lt;name&gt;.js
   p
     code &lt;delay&gt;
-    span : response time in seconds
+    span : response time in seconds [default: 0 sec]
   p
     code &lt;size&gt;
-    span : size of document in kilo-bytes
+    span : size of document in kilo-bytes [default: minimal script]
   p
     code &lt;time&gt;
-    span : runtime of the script when running in the browser in seconds
+    span : runtime of the script when running in the browser in seconds [default: 0 sec]
+  p
+    code &lt;name&gt;
+    span : name for the resource to identify easily in the developer-tools network waterfall

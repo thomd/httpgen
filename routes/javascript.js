@@ -6,7 +6,10 @@ var sleep      = require('sleep');
 var util       = require('util');
 var javascript = 'function go(){if(go.count < %d){go.count++;window.setTimeout(go,1000);}}go.count=0;go();';
 
-router.get('/:delay?/:size?/:time?', function(req, res) {
+router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
+
+  // name: a name for the resource to identify easily in the developer-tools network waterfall
+  res.set('X-Content-Name', req.params.name);
 
   // delay: response time in seconds
   var delay = parseInt(req.params.delay || 0);
@@ -25,7 +28,7 @@ router.get('/:delay?/:size?/:time?', function(req, res) {
   body.fill(' ', body.write(js));
 
   // response
-  res.set('Content-Type', 'text/javascript');
+  res.set('Content-Type', 'application/javascript');
   res.send(body.toString());
 });
 
