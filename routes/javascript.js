@@ -4,7 +4,7 @@ var express    = require('express');
 var router     = express.Router();
 var sleep      = require('sleep');
 var util       = require('util');
-var javascript = 'function go(){if(go.count < %d){go.count++;window.setTimeout(go,1000);}}go.count=0;go();';
+var javascript = 'function go(){if(go.count < %d){console.log(go.count++);window.setTimeout(go,1000);}}go.count=0;go();';
 
 router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
 
