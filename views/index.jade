@@ -2,4 +2,22 @@ extends layout
 
 block content
   h1= title
-  a(href="/css/1") css/1
+  h3 Stylesheet
+  a(href="/css/0/1") /css/&lt;delay&gt;?/&lt;size&gt;?
+  p
+    code &lt;delay&gt;
+    span : response time in seconds
+  p
+    code &lt;size&gt;
+    span : size of document in kilo-bytes
+  h3 Javascript
+  a(href="/javascript/0/1/0") /javascript/&lt;delay&gt;?/&lt;size&gt;?/&lt;time&gt;?
+  p
+    code &lt;delay&gt;
+    span : response time in seconds
+  p
+    code &lt;size&gt;
+    span : size of document in kilo-bytes
+  p
+    code &lt;time&gt;
+    span : runtime of the script when running in the browser in seconds

@@ -5,4 +5,10 @@ body {
 
 a {
   color: #00B7FF;
+	text-decoration: none;
+}
+
+p {
+	color: #999;
+	padding-left: 1em;
 }
