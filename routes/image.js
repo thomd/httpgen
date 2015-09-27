@@ -3,14 +3,13 @@
 var express = require('express');
 var router  = express.Router();
 var sleep   = require('sleep');
-var util    = require('util');
-var qr      = require('qr-image');
 
 
 // QR-code image containing URL
 router.get('/:delay?/qr.png', function(req, res) {
 
   // create iamge
+  var qr = require('qr-image');
   var url = req.protocol + '://' + req.hostname + req.originalUrl;
   res.set('X-QR-Content', url);
   var code = qr.image(url, { type: 'png' });
@@ -25,9 +24,19 @@ router.get('/:delay?/qr.png', function(req, res) {
   code.pipe(res);
 });
 
-//
-//router.get('image/:delay?/:size?/:name.png', function(req, res){
-//})
+
+// color png
+router.get('/:delay?/:size?/color.png', function(req, res){
+
+  // create iamge
+  var image = require('pngjs-image').createImage(100, 100);
+  image.fillRect(0, 0, 100, 100, {red: 255, green: 0, blue: 0, alpha: 100});
+  var body = new Buffer(image.toBlobSync(), 'binary');
+
+  // response
+  res.type('png');
+  res.send(body);
+})
 
 module.exports = router;
 
