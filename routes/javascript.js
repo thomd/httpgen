@@ -28,7 +28,7 @@ router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
   body.fill(' ', body.write(js));
 
   // response
-  res.set('Content-Type', 'application/javascript');
+  res.type('javascript');
   res.send(body.toString());
 });
 

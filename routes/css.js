@@ -24,7 +24,7 @@ router.get('/:delay?/:size?/:name.css', function(req, res) {
   body.fill(' ', body.write(css));
 
   // response
-  res.set('Content-Type', 'text/css');
+  res.type('css');
   res.send(body.toString());
 });
 
