@@ -17,5 +17,10 @@
     "qr-image": "^3.1.0",
     "serve-favicon": "~2.2.0",
     "sleep": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "superagent": "^1.4.0"
   }
 }
