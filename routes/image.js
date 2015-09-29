@@ -1,18 +1,21 @@
 'use strict';
 
-var express = require('express');
-var router  = express.Router();
-var sleep   = require('sleep');
+var express  = require('express');
+var router   = express.Router();
+var hex2rgba = require('hex-and-rgba').hexToRgba;
+var pngjs    = require('pngjs-image');
+var sleep    = require('sleep');
 
+// color png
+router.get('/:delay?/:width?/:height?/:color.png', function(req, res){
 
-// QR-code image containing URL
-router.get('/:delay?/qr.png', function(req, res) {
-
-  // create iamge
-  var qr = require('qr-image');
-  var url = req.protocol + '://' + req.hostname + req.originalUrl;
-  res.set('X-QR-Content', url);
-  var code = qr.image(url, { type: 'png' });
+  // create image
+  var width = parseInt(req.params.width || 100);
+  var height = parseInt(req.params.height || width);
+  var color = hex2rgba('#' + req.params.color || '#ff00088');
+  var image = pngjs.createImage(width, height);
+  image.fillRect(0, 0, width, height, {red: color[0], green: color[1], blue: color[2], alpha: color[3] * 100});
+  var data = new Buffer(image.toBlobSync(), 'binary');
 
   // delay: response time in seconds
   var delay = parseInt(req.params.delay || 0);
@@ -21,21 +24,7 @@ router.get('/:delay?/qr.png', function(req, res) {
 
   // response
   res.type('png');
-  code.pipe(res);
-});
-
-
-// color png
-router.get('/:delay?/:size?/color.png', function(req, res){
-
-  // create iamge
-  var image = require('pngjs-image').createImage(100, 100);
-  image.fillRect(0, 0, 100, 100, {red: 255, green: 0, blue: 0, alpha: 100});
-  var body = new Buffer(image.toBlobSync(), 'binary');
-
-  // response
-  res.type('png');
-  res.send(body);
+  res.send(data);
 })
 
 module.exports = router;
