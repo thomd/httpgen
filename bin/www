@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('thomd-httpbin:server');
+var debug = require('debug')('httpgen:server');
 var http = require('http');
 
 /**
