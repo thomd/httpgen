@@ -1,6 +1,12 @@
 # HTTP Response Generator
 
-Generate dummy CSS- and JavaScript-files for testing webpage performance.
+Generate dummy webpage resources like CSS, javascript and images for testing webpage performance patterns.
+
+## Test
+
+    npm install --global mocha
+    foreman start
+    mocha
 
 ## Install on Heroku
 
@@ -12,7 +18,7 @@ Generate dummy CSS- and JavaScript-files for testing webpage performance.
 
 ## Usage
 
-### Stylesheet
+### CSS
 
     /css/<delay>?/<size>?/<name>.css
 
@@ -33,3 +39,15 @@ Generate dummy CSS- and JavaScript-files for testing webpage performance.
 `<time>`: runtime of the script when running in the browser in seconds
 
 `<name>`: name for the resource to identify easily in the developer-tools network waterfall
+
+### PNG Image
+
+    /image/<delay>?/<width>?/<height>?/<color>.png
+
+`<delay>`: response time in seconds
+
+`<width>`: width of the image in pixel
+
+`<height>`: height of the image in pixel
+
+`<color>`: color of the image in hex-code (without `#`)
