@@ -4,9 +4,8 @@ Generate dummy webpage resources like CSS, javascript and images for testing web
 
 ## Test
 
-    npm install --global mocha
-    foreman start
-    mocha
+    npm start
+    npm test
 
 ## Install on Heroku
 
