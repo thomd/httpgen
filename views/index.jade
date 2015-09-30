@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1= title
+
   h3 Stylesheet
   a(href="/css/0/0/style.css") /css/&lt;delay&gt;?/&lt;size&gt;?/&lt;name&gt;.css
   p
@@ -13,6 +14,7 @@ block content
   p
     code &lt;name&gt;
     span : name for the resource to identify easily in the developer-tools network waterfall
+
   h3 Javascript
   a(href="/javascript/0/0/0/script.js") /javascript/&lt;delay&gt;?/&lt;size&gt;?/&lt;time&gt;?/&lt;name&gt;.js
   p
@@ -27,3 +29,18 @@ block content
   p
     code &lt;name&gt;
     span : name for the resource to identify easily in the developer-tools network waterfall
+
+  h3 Image
+  a(href="/image/0/200/200/ff0000.png") /image/&lt;delay&gt;?/&lt;width&gt;?/&lt;height&gt;?/&lt;color&gt;.png
+  p
+    code &lt;delay&gt;
+    span : response time in seconds [default: 0 sec]
+  p
+    code &lt;width&gt;
+    span : width of the image in pixel
+  p
+    code &lt;height&gt;
+    span : height of the image in pixel
+  p
+    code &lt;color&gt;
+    span : hex-color code of the image (without #)
