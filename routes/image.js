@@ -12,7 +12,7 @@ router.get('/:delay?/:width?/:height?/:color.png', function(req, res){
   // create image
   var width = parseInt(req.params.width || 100);
   var height = parseInt(req.params.height || width);
-  var color = hex2rgba('#' + req.params.color || '#ff00088');
+  var color = hex2rgba('#' + req.params.color);
   var image = pngjs.createImage(width, height);
   image.fillRect(0, 0, width, height, {red: color[0], green: color[1], blue: color[2], alpha: color[3] * 100});
   var data = new Buffer(image.toBlobSync(), 'binary');
