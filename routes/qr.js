@@ -6,6 +6,7 @@ var sleep   = require('sleep');
 
 // QR-code image containing URL
 router.get('/:delay?/:content.png', function(req, res) {
+  var start = new Date;
 
   // create iamge
   var qr = require('qr-image');
@@ -20,6 +21,8 @@ router.get('/:delay?/:content.png', function(req, res) {
 
   // response
   res.type('png');
+  var ms = new Date - start;
+  res.set('X-Response-Time', ms + 'ms');
   code.pipe(res);
 });
 

@@ -7,6 +7,7 @@ var css     = 'body { background-color: #e6ffe6; }';
 
 
 router.get('/:delay?/:size?/:name.css', function(req, res) {
+  var start = new Date;
 
   // name: a name for the resource to identify easily in the developer-tools network waterfall
   res.set('X-Content-Name', req.params.name);
@@ -25,6 +26,8 @@ router.get('/:delay?/:size?/:name.css', function(req, res) {
 
   // response
   res.type('css');
+  var ms = new Date - start;
+  res.set('X-Response-Time', ms + 'ms');
   res.send(body.toString());
 });
 

@@ -8,6 +8,7 @@ var sleep    = require('sleep');
 
 // color png
 router.get('/:delay?/:width?/:height?/:color.png', function(req, res){
+  var start = new Date;
 
   // create image
   var width = parseInt(req.params.width || 100);
@@ -24,6 +25,8 @@ router.get('/:delay?/:width?/:height?/:color.png', function(req, res){
 
   // response
   res.type('png');
+  var ms = new Date - start;
+  res.set('X-Response-Time', ms + 'ms');
   res.send(data);
 })
 
