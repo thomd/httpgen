@@ -10,6 +10,7 @@ var routes       = require('./routes/index');
 var css          = require('./routes/css');
 var javascript   = require('./routes/javascript');
 var image        = require('./routes/image');
+var qr           = require('./routes/qr');
 
 var app          = express();
 
@@ -28,6 +29,7 @@ app.use('/', routes);
 app.use('/css', css);
 app.use('/javascript', javascript);
 app.use('/image', image);
+app.use('/qr', qr);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

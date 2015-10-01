@@ -50,3 +50,13 @@ Generate dummy webpage resources like CSS, javascript and images for testing web
 `<height>`: height of the image in pixel
 
 `<color>`: color of the image in hex-code (without `#`)
+
+### QR-code Image
+
+    /qr/<delay>?/<content|request-header>.png
+
+`<delay>`: response time in seconds
+
+`<content>`: content of the QR-code
+
+`<request-header>`: request header as content of the QR-code

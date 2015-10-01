@@ -11,7 +11,7 @@ router.get('/:delay?/:content.png', function(req, res) {
   var qr = require('qr-image');
   var content = req.params.content;
   res.set('X-QR-Content', content);
-  var code = qr.image(content, { type: 'png' });
+  var code = qr.image(req.get(content) || content, { type: 'png' });
 
   // delay: response time in seconds
   var delay = parseInt(req.params.delay || 0);
