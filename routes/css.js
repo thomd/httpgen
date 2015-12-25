@@ -3,7 +3,7 @@
 var express = require('express');
 var router  = express.Router();
 var sleep   = require('sleep');
-var css     = 'body { background-color: #e6ffe6; }';
+var color   = require('random-hex-color')
 
 
 router.get('/:delay?/:size?/:name.css', function(req, res) {
@@ -18,6 +18,7 @@ router.get('/:delay?/:size?/:name.css', function(req, res) {
   sleep.sleep(delay);
 
   // size: size of document in kilo-bytes
+  var css     = 'body { background-color: ' + color() + '; }';
   var size = css.length;
   size = Math.max(parseInt(req.params.size || 0) * 1000, size);
   res.set('X-Content-Size', size);
