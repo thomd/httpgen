@@ -1,8 +1,9 @@
 var request = require('request');
-var chai    = require('chai');
-var expect  = chai.expect;
+var chai = require('chai');
+var expect = chai.expect;
 
 describe('css response', function() {
+  "use strict"
 
   var response, body;
 
@@ -15,19 +16,18 @@ describe('css response', function() {
   })
 
   it('should have status 200', function() {
-      expect(response.statusCode).to.equal(200);
+    expect(response.statusCode).to.equal(200);
   });
 
   it('should be of content type css', function() {
-      expect(response.headers['content-type']).to.include('text/css');
+    expect(response.headers['content-type']).to.include('text/css');
   });
 
   it('should have length of 1000 Bytes', function() {
-      expect(response.headers['content-length']).to.equal('1000');
+    expect(response.headers['content-length']).to.equal('1000');
   });
 
   it('should contain css code', function() {
-      expect(body).to.include('background-color');
+    expect(body).to.include('background-color');
   });
-
 });

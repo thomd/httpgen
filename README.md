@@ -2,10 +2,19 @@
 
 Generate dummy webpage resources like CSS, javascript and images for testing webpage performance patterns.
 
-## Test
+## Development
+
+Start on port `5000`:
 
     npm start
+
+Run mocha tests:
+
     npm test
+
+Lint (JSCS, JsHint):
+
+    npm run lint
 
 ## Install on Heroku
 
@@ -59,4 +68,4 @@ Generate dummy webpage resources like CSS, javascript and images for testing web
 
 `<content>`: content of the QR-code
 
-`<request-header>`: request header as content of the QR-code
+`<request-header>`: request header as content of the QR-code (for example: `referer`)

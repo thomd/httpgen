@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=httpgen:* PORT=5000 node ./bin/www",
-    "test": "./node_modules/.bin/mocha test"
+    "start": "DEBUG=httpgen:* PORT=5000 nodemon ./bin/www",
+    "test": "./node_modules/.bin/mocha test",
+    "lint": "./node_modules/.bin/jscs *.js; ./node_modules/.bin/jscs **/*.js; ./node_modules/.bin/jshint *.js; ./node_modules/.bin/jshint **/*.js"
   },
   "dependencies": {
     "body-parser": "~1.12.0",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "chai": "^3.3.0",
+    "jscs": "^2.7.0",
+    "jshint": "^2.8.0",
     "mocha": "^2.3.3",
     "request": "^2.64.0"
   }
