@@ -1,12 +1,11 @@
 'use strict';
 
 var express = require('express');
-var router  = express.Router();
-var sleep   = require('sleep');
+var router = express.Router();
 
 // QR-code image containing URL
 router.get('/:delay?/:content.png', function(req, res) {
-  var start = new Date;
+  var start = new Date();
 
   // create iamge
   var qr = require('qr-image');
@@ -17,13 +16,13 @@ router.get('/:delay?/:content.png', function(req, res) {
   // delay: response time in seconds
   var delay = parseInt(req.params.delay || 0);
   res.set('X-Content-Delay', delay);
-  sleep.sleep(delay);
 
-  // response
-  res.type('png');
-  var ms = new Date - start;
-  res.set('X-Response-Time', ms + 'ms');
-  code.pipe(res);
+  // response body
+  setTimeout(function() {
+    res.type('png');
+    res.set('X-Response-Time', (new Date() - start) + ' ms');
+    code.pipe(res);
+  }, delay * 1000);
 });
 
 module.exports = router;
