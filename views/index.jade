@@ -44,3 +44,15 @@ block content
   p
     code &lt;color&gt;
     span : hex-color code (rgba) of the image (without #)
+
+  h3 QR-Code Image
+  a(href="/qr/0/referer.png") /qr/&lt;delay&gt;?/&lt;content|request-header&gt;.png
+  p
+    code &lt;delay&gt;
+    span : response time in seconds [default: 0 sec]
+  p
+    code &lt;content&gt;
+    span : content of the QR-Code
+  p
+    code &lt;request-header&gt;
+    span : request header as content of the QR-code (for example: "referer")

@@ -5,10 +5,14 @@ body {
 
 a {
   color: #00B7FF;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 p {
-	color: #999;
-	padding-left: 1em;
+  color: #999;
+  padding-left: 1em;
+}
+
+h3 {
+  margin-top: 3em;
 }
