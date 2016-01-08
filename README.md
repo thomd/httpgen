@@ -69,3 +69,8 @@ Lint (JSCS, JsHint):
 `<content>`: content of the QR-code
 
 `<request-header>`: request header as content of the QR-code (for example: `referer`)
+
+### Timeout for simulating a single point of failure (SPOF)
+
+    /spof
+

@@ -11,6 +11,7 @@ var css          = require('./routes/css');
 var javascript   = require('./routes/javascript');
 var image        = require('./routes/image');
 var qr           = require('./routes/qr');
+var spof         = require('./routes/spof');
 
 var app          = express();
 
@@ -30,6 +31,7 @@ app.use('/css', css);
 app.use('/javascript', javascript);
 app.use('/image', image);
 app.use('/qr', qr);
+app.use('/spof', spof);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
