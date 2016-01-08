@@ -29,7 +29,7 @@ router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
 
   // response body
   setTimeout(function() {
-    res.type('javascript');
+    res.type('js');
     res.set('X-Response-Time', (new Date() - start) + ' ms');
     res.send(body.toString());
   }, delay * 1000);
