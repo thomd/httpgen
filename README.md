@@ -74,3 +74,15 @@ Lint (JSCS, JsHint):
 
     /spof
 
+### JSON
+
+Return clients IP address.
+
+    /json/<delay>?/<size>?/<name>.json
+
+`<delay>`: response time in seconds
+
+`<size>`: size of document in kilo-bytes
+
+`<name>`: name for the resource to identify easily in the developer-tools network waterfall
+
