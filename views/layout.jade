@@ -5,3 +5,10 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+    script(src='/javascripts/clipboard.min.js')
+    script.
+      new Clipboard('.copy', {
+        text: function(trigger) {
+          return trigger.previousSibling.href
+        }
+      })
