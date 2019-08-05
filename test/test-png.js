@@ -4,11 +4,11 @@ var chai = require('chai');
 chai.use(require('chai-match'));
 var expect = chai.expect;
 
-describe('css response', function() {
+describe('image response', function() {
   var response;
 
   before(function(done) {
-    request(app).get('/css/1/1/app.css').end(function(err, res, body) {
+    request(app).get('/image/1/10/10/ff0000.png').end(function(err, res, body) {
       response = res;
       done();
     });
@@ -19,12 +19,12 @@ describe('css response', function() {
   });
 
   it('should be of content type css', function() {
-    expect(response.headers['content-type']).to.include('text/css');
+    expect(response.headers['content-type']).to.include('image/png');
   });
 
   it('should have length of 1000 Bytes', function() {
-    expect(response.headers['x-content-size']).to.equal('1000 kb');
-    expect(response.headers['content-length']).to.equal('1000');
+    expect(response.headers['x-content-size']).to.equal('77 kb');
+    expect(response.headers['content-length']).to.equal('77');
   });
 
   it('should have a response time of at least 1 sec', function() {
@@ -34,7 +34,7 @@ describe('css response', function() {
     expect(responseTime).to.be.above(1000)
   });
 
-  it('should contain css code', function() {
-    expect(response.text).to.match(/^body { background-color: rgb\(\d{1,3}, \d{1,3}, \d{1,3}\); }/);
+  it('should contain a PNG binary', function() {
+    expect(response.body.toString('ascii')).to.equal('\tPNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\n\u0000\u0000\u0000\n\b\u0006\u0000\u0000\u0000\r2O=\u0000\u0000\u0000\u0014IDATx\u001ccxO@p\u001f\u0018L0*\u0010>\n\u0001\u0012CG9+:|1\u0000\u0000\u0000\u0000IEND.B`\u0002');
   });
 });
