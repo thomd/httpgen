@@ -1,20 +1,9 @@
 # HTTP Response Generator
 
+[![Build Status](https://travis-ci.org/thomd/httpgen.png)](https://travis-ci.org/thomd/httpgen)
+[![Known Vulnerabilities](https://snyk.io/test/github/thomd/httpgen/badge.svg)](https://snyk.io/test/github/thomd/httpgen)
+
 Generate dummy webpage resources like CSS, javascript and images for testing webpage performance patterns.
-
-## Development
-
-Start on port `5000`:
-
-    npm start
-
-Run mocha tests:
-
-    npm test
-
-Lint (JSCS, JsHint):
-
-    npm run lint
 
 ## Install on Heroku
 
