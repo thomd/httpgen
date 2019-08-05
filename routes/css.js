@@ -15,7 +15,11 @@ router.get('/:delay?/:size?/:name.css', function(req, res) {
 
   // size: size of document in kilo-bytes
   var color = require('color')(require('random-hex-color')()).lighten(0.3).rgb()
-  var css = 'body { background-color: rgb(' + color.r + ', ' + color.g + ', ' + color.b + '); }';
+  var red = color.color[0].toFixed();
+  var green = color.color[1].toFixed();
+  var blue = color.color[2].toFixed();
+
+  var css = 'body { background-color: rgb(' + red + ', ' + green + ', ' + blue + '); }';
   var size = css.length;
   size = Math.max(parseInt(req.params.size || 0) * 1000, size);
   res.set('X-Content-Size', size + ' kb');

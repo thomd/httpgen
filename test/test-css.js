@@ -1,16 +1,15 @@
-var request = require('request');
+var request = require('supertest');
+var app = require('../app.js')
 var chai = require('chai');
+chai.use(require('chai-match'));
 var expect = chai.expect;
 
 describe('css response', function() {
-  "use strict"
-
-  var response, body;
+  var response;
 
   before(function(done) {
-    request.get('http://localhost:5000/css/0/1/app.css', function(error, _response, _body) {
-      response = _response;
-      body = _body;
+    request(app).get('/css/1/1/app.css').end(function(err, res, body) {
+      response = res;
       done();
     });
   })
@@ -24,10 +23,18 @@ describe('css response', function() {
   });
 
   it('should have length of 1000 Bytes', function() {
+    expect(response.headers['x-content-size']).to.equal('1000 kb');
     expect(response.headers['content-length']).to.equal('1000');
   });
 
   it('should contain css code', function() {
-    expect(body).to.include('background-color');
+    expect(response.text).to.match(/^body { background-color: rgb\(\d{1,3}, \d{1,3}, \d{1,3}\); }/);
+  });
+
+  it('should have a response time of at least 1 sec', function() {
+    expect(response.headers['x-content-delay']).to.equal('1');
+    expect(response.headers['x-response-time']).to.match(/\d{4} ms/);
+    var responseTime = parseInt(response.headers['x-response-time'].match(/(\d+) ms/)[1], 10)
+    expect(responseTime).to.be.above(1000)
   });
 });
