@@ -13,6 +13,10 @@ Generate dummy webpage resources like CSS, javascript and images for testing web
     heroku open
     heroku logs --tail
 
+or use
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thomd/httpgen)
+
 ## Usage
 
 ### CSS

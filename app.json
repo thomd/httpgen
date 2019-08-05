@@ -1,0 +1,17 @@
+{
+  "name": "httpgen",
+  "description": "Generate dummy webpage resources like CSS, javascript and images for testing webpage performance patterns.",
+  "keywords": [
+    "webpage testing",
+    "performace",
+    "generator"
+  ],
+  "repository": "https://github.com/thomd/httpgen",
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm test"
+      }
+    }
+  }
+}
