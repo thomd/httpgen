@@ -1,4 +1,4 @@
-# HTTP Response Generator
+# HTTP-Response Generator for Webpage Performance Tests
 
 [![Build Status](https://travis-ci.org/thomd/httpgen.png)](https://travis-ci.org/thomd/httpgen)
 [![Known Vulnerabilities](https://snyk.io/test/github/thomd/httpgen/badge.svg)](https://snyk.io/test/github/thomd/httpgen)
