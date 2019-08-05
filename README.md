@@ -11,7 +11,6 @@ Generate dummy webpage resources like CSS, javascript and images for testing web
     heroku create
     git push heroku master
     heroku open
-    heroku logs --tail
 
 or use
 
@@ -51,7 +50,7 @@ or use
 
 `<height>`: height of the image in pixel
 
-`<color>`: color of the image in hex-code (without `#`)
+`<color>`: color of the image in hex-code (without `#`) or prefix with `random`
 
 ### QR-code Image
 
