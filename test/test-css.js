@@ -31,7 +31,7 @@ describe('css response', function() {
     expect(response.headers['x-content-delay']).to.equal('1');
     expect(response.headers['x-response-time']).to.match(/\d{4} ms/);
     var responseTime = parseInt(response.headers['x-response-time'].match(/(\d+) ms/)[1], 10)
-    expect(responseTime).to.be.above(1000)
+    expect(responseTime).to.be.above(999)
   });
 
   it('should contain css code', function() {
