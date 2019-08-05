@@ -1,9 +1,6 @@
-'use strict';
-
 var express = require('express');
 var router = express.Router();
 var util = require('util');
-//var javascript = 'function go(){if(go.count < %d){console.log(go.count++);window.setTimeout(go,1000);}}go.count=0;go();';
 var javascript = 'console.time("js execution");var result = 0;var now = new Date().getTime();while(new Date().getTime() < now + (%d)){result += Math.random() * Math.random()};console.timeEnd("js execution");';
 
 router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
@@ -32,7 +29,7 @@ router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
     res.type('js');
     res.set('X-Response-Time', (new Date() - start) + ' ms');
     res.send(body.toString());
-  }, delay);
+  }, delay * 1000);
 });
 
 module.exports = router;

@@ -18,11 +18,11 @@ describe('image response', function() {
     expect(response.statusCode).to.equal(200);
   });
 
-  it('should be of content type css', function() {
+  it('should be of content type image/png', function() {
     expect(response.headers['content-type']).to.include('image/png');
   });
 
-  it('should have length of 1000 Bytes', function() {
+  it('should have length of 77 Bytes', function() {
     expect(response.headers['x-content-size']).to.equal('77 kb');
     expect(response.headers['content-length']).to.equal('77');
   });
