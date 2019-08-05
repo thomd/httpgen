@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var util = require('util');
-var javascript = 'console.time("start execution of %s");var result = 0;var now = new Date().getTime();while(new Date().getTime() < now + (%d)){result += Math.random() * Math.random()};console.timeEnd("stop execution of %s");';
+var javascript = 'console.time("%s");console.log("start execution of %s");var result = 0;var now = new Date().getTime();while(new Date().getTime() < now + (%d)){result += Math.random()*Math.random()};console.log("stop execution of %s");console.timeEnd("%s");';
 
 router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
   var start = new Date();
@@ -16,7 +16,7 @@ router.get('/:delay?/:size?/:time?/:name.js', function(req, res) {
   // time: runtime of the script when running in the browser in seconds
   var time = parseInt(req.params.time || 0);
   var name = req.params.name + '.js';
-  var js = util.format(javascript, name, time, name)
+  var js = util.format(javascript, name, name, time, name, name)
 
   // size: size of document in kilo-bytes
   var size = js.length;

@@ -22,9 +22,9 @@ describe('javascript response', function() {
     expect(response.headers['content-type']).to.include('application/javascript; charset=utf-8');
   });
 
-  it('should have length of 219 Bytes', function() {
-    expect(response.headers['x-content-size']).to.equal('219 kb');
-    expect(response.headers['content-length']).to.equal('219');
+  it('should have length of 267 Bytes', function() {
+    expect(response.headers['x-content-size']).to.equal('267 kb');
+    expect(response.headers['content-length']).to.equal('267');
   });
 
   it('should have a response time of at least 1 sec', function() {
@@ -35,6 +35,6 @@ describe('javascript response', function() {
   });
 
   it('should contain javascript code', function() {
-    expect(response.text).to.equal('console.time("start execution of script.js");var result = 0;var now = new Date().getTime();while(new Date().getTime() < now + (3)){result += Math.random() * Math.random()};console.timeEnd("stop execution of script.js");');
+    expect(response.text).to.equal('console.time("script.js");console.log("start execution of script.js");var result = 0;var now = new Date().getTime();while(new Date().getTime() < now + (3)){result += Math.random()*Math.random()};console.log("stop execution of script.js");console.timeEnd("script.js");');
   });
 });
